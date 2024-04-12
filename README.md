@@ -10,4 +10,5 @@ Carlo Bruscani
 
 ## Execution Exmaple
 Running the executable after a project build, "zig build," results in the following basic SDL demonstration window. Tested only on Windows 11.
-![alt text](https://github.com/vbrusca/ZigSdlGameTemplate/storage/sc1.png)
+<br><br>
+![Screen Shot of SDL Window](storage/sc1.png)
