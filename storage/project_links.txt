@@ -1,0 +1,2 @@
+https://dev.to/fabioarnold/setup-zig-for-gamedev-2bmf
+https://github.com/MasterQ32/SDL.zig
