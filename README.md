@@ -7,3 +7,7 @@ This project was built against Zig version "zig-windows-x86-0.12.0-dev.3284+153b
 ## Developers
 Victor Brusca<br>
 Carlo Bruscani
+
+## Execution Exmaple
+Running the executable after a project build, "zig build," results in the following basic SDL demonstration window. Tested only on Windows 11.
+![alt text](https://github.com/vbrusca/ZigSdlGameTemplate/storage/sc1.png)
