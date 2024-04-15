@@ -9,6 +9,9 @@ Victor Brusca
 <br>
 Carlo Bruscani
 
+## Based On
+This template was based on an older tutorial, [Zig For Game Dev](https://dev.to/fabioarnold/setup-zig-for-gamedev-2bmf), and updated to work with the current version of Zig.
+
 ## Execution Example
 Running the executable, "zig-out\bin," after a project build, "zig build," results in the following basic SDL demonstration window. Tested only on Windows 11.
 <br><br>
