@@ -19,7 +19,7 @@ pub fn build(b: *std.Build) void {
         .name = "ZigSdlGameTemplate",
         // In this case the main source file is merely a path, however, in more
         // complicated build scripts, this could be a generated file.
-        .root_source_file = .{ .path = "src/root.zig" },
+        .root_source_file = b.path("src/root.zig"),
         .target = target,
         .optimize = optimize,
     });
@@ -31,17 +31,19 @@ pub fn build(b: *std.Build) void {
 
     const exe = b.addExecutable(.{
         .name = "ZigSdlGameTemplate",
-        .root_source_file = .{ .path = "src/main.zig" },
+        .root_source_file = b.path("src/main.zig"),
         .target = target,
         .optimize = optimize,
     });
 
-    const sdl_path_inc = .{ .path = ".\\lib\\SDL2-2.30.2\\include\\" };
-    const sdl_path_lib = .{ .path = ".\\lib\\SDL2-2.30.2\\lib\\x64\\" };
-    const sdl_path_bin = .{ .path = ".\\lib\\SDL2-2.30.2\\lib\\x64\\SDL2.dll" };
+    const sdl_path_inc = b.path(".\\lib\\SDL2-2.30.2\\include\\");
+    const sdl_path_lib = b.path(".\\lib\\SDL2-2.30.2\\lib\\x64\\");
+    const sdl_path_bin = b.path(".\\lib\\SDL2-2.30.2\\lib\\x64\\SDL2.dll");
     exe.addIncludePath(sdl_path_inc);
     exe.addLibraryPath(sdl_path_lib);
-    b.installBinFile(sdl_path_bin.path, "SDL2.dll");
+
+    b.installBinFile(sdl_path_bin.getDisplayName(), "SDL2.dll");
+
     exe.linkSystemLibrary("sdl2");
     exe.linkLibC();
     b.installArtifact(exe);
@@ -77,7 +79,7 @@ pub fn build(b: *std.Build) void {
     // Creates a step for unit testing. This only builds the test executable
     // but does not run it.
     const lib_unit_tests = b.addTest(.{
-        .root_source_file = .{ .path = "src/root.zig" },
+        .root_source_file = b.path("src/root.zig"),
         .target = target,
         .optimize = optimize,
     });
@@ -85,7 +87,7 @@ pub fn build(b: *std.Build) void {
     const run_lib_unit_tests = b.addRunArtifact(lib_unit_tests);
 
     const exe_unit_tests = b.addTest(.{
-        .root_source_file = .{ .path = "src/main.zig" },
+        .root_source_file = b.path("src/main.zig"),
         .target = target,
         .optimize = optimize,
     });
